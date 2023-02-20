@@ -1,0 +1,34 @@
+datatype are of three types
+1. Numeric
+2. String
+3. Date And Time
+
+// Numeric datatype
+
+Numeric data type is of two types
+1. Signed
+2. Unsigned
+
+Signed data types are range from - value to + value
+Unsigned data types are range from - 0 to + value
+
+Numeric datatype is of multiple types float,double,boolean,date
+
+// Date Time datatype
+
+date, datetime and timestamp are the three types of date is there 
+
+date is in 'yyyy-mm-dd'
+datetime is on 'YYYY-MM-DD hh::mm::ss'
+timestamp is on 'YYYY-MM-DD hh::mm::ss' 
+
+difference b/w datetime and timestamp is that timestamp retrieve date according to timezone but datetime once set it never be changed
+
+
+// String datatype
+
+difference between char and varchar is that if char(5) takes a 5 character then if it stores only aa then it creates spaces 'aa---'
+ but with varchar it does not create spaces 'aa'
+
+ difference between blob and text datatype is both stored large amount of data,
+  blob stored binary data for files,images and text stores character data

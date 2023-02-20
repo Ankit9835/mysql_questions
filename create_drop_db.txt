@@ -1,0 +1,3 @@
+create database if exists employee;
+show databases;
+drop database if exists employee;
