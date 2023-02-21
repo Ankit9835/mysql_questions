@@ -1,0 +1,45 @@
+CREATE DATABASE IF NOT EXISTS organisations
+
+USE organisations
+
+CREATE TABLE accountant
+(
+   id INT AUTO_INCREMENT,
+   accountant_name CHAR(20),
+   email VARCHAR(20),
+   created_on TIMESTAMP DEFAULT NOW(),
+   PRIMARY KEY (id)
+);
+
+SHOW TABLES;
+DESC accountant;
+
+INSERT INTO accountant(accountant_name,email) VALUES('jai', 'jai@gmail.com');
+
+SELECT * FROM accountant;
+
+// add column
+
+ALTER TABLE accountant
+ADD phone INT AFTER email;
+
+// modify column
+
+ALTER TABLE accountant
+MODIFY phone VARCHAR(20) AFTER email; 
+
+// rename column name
+
+ALTER TABLE accountant
+CHANGE phone phone_number VARCHAR(20) AFTER email; 
+
+// drop column name
+
+ALTER TABLE accountant
+DROP phone_number;
+
+
+// rename TABLE
+
+ALTER TABLE accountant
+RENAME accountant_info;
