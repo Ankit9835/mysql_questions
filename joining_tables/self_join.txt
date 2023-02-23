@@ -1,0 +1,1 @@
+select * from productcategory p join productcategory p1 on p1.parent_id=p.id

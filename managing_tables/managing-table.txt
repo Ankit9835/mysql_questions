@@ -49,3 +49,5 @@ UPDATE accountant SET price=25000 where id=1
 update accountant SET price=100000 where id IN(5,6)
 
 select accountant_name from accountant_info order by accountant_name
+
+select * from accountant order by accountant_name desc limit 4,1

@@ -1,0 +1,1 @@
+SELECT c.first_name,a.phone FROM customer AS c LEFT JOIN address AS a ON c.address_id = a.address_id
