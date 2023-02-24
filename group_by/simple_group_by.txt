@@ -1,0 +1,22 @@
+SELECT release_year,COUNT(*) 'total film released'
+FROM film
+GROUP BY release_year
+ORDER BY release_year;
+
+SELECT release_year,LENGTH,COUNT(*) 'total film released'
+FROM film 
+GROUP BY release_year,LENGTH
+ORDER BY release_year
+
+SELECT release_year,COUNT(film_id) 'total film', l.name,
+ AVG(LENGTH) 'average', MIN(LENGTH) 'minimum',
+  MAX(LENGTH) 'maximum', GROUP_CONCAT(f.title) 'films' FROM film f 
+JOIN LANGUAGE l ON f.language_id = l.language_id
+GROUP BY release_year, f.language_id
+ORDER BY release_year, f.language_id
+
+SELECT release_year,LENGTH,COUNT(*) 'total film released'
+FROM film 
+GROUP BY release_year,LENGTH
+HAVING LENGTH > 20
+ORDER BY release_year
