@@ -1,0 +1,1 @@
+stored procedure is a set of sql statement which is stored into the database server and it's advantages are high security,low network traffic

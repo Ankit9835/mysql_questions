@@ -1,0 +1,58 @@
+show dbs
+use ng_sample
+db.createCollection("students")
+show collections
+db.students.insertOne({name:'Ankit'})
+db.students.insertMany(somevariable)
+db.users.update({name:'John Smilga'}, {$set:{email:'codingaddict@gmail.com'}}, {multi:true})
+db.users.updateMany({name:'John Smilga'}, {$set:{email:'codingaddict@gmail.com'}}, {multi:true})
+db.users.find({name:'John Smilga'},['name','email'])
+db.users.find({name:'John Smilga'},{_id:0,name:1,email:1})
+db.address.find({"location.range":{$gte:"500"}},["location.range"])
+db.address.find({"location.range":"500"})
+db.restaurants.find({borough:{$nin:['Manhattan','Brooklyn']}},{borough:1})
+db.restaurants.find({borough:{$in:['Manhattan','Brooklyn']}},{borough:1})
+db.restaurants.find({$and:[{"address.building":{$gte:700}},{"borough":"Manhattan"}]},["address.building","borough"])
+
+db.movies.find({
+    $or:[
+        {
+            $and:[
+                {
+                    "imbd.rating": {$gte:3},
+                    "imbd.rating": {$lt:5}
+                }
+            ],
+
+            $and:[
+                {
+                    "imbd.rating": {$gte:8},
+                    "imbd.rating": {$lt:9}
+                }
+            ],
+
+        }    
+    ]
+},{"imbd.rating":1})
+
+db.movies.find({runtime:{$not:{$gte:10}}},{runtime:1})
+db.movies.find({$nor:[{"imdb.rating":{$lt:5}},{"imdb.votes":{$gte:500}}]},{"imdb.rating":1,"imdb.votes":1})
+
+db.movies.find({},{title:1}).limit(5)
+ db.movies.find({},{title:1}).limit(5).skip(2)
+
+ db.movies.find({},{runtime:1}).sort()
+ db.movies.find({},{runtime:1}).sort({runtime:-1})
+
+db.movies.countDocuments()
+db.movies.countDocuments({$and:[{"imdb.rating":{$gt:2}}, {"imdb.rating":{$lt:10}}]})
+
+db.movies.distinct("rated",{year:{$gte:2000}})
+
+
+ db.movies.aggregate([{$group:{_id:"$type"}}])
+
+ db.movies.aggregate([{$group:{_id:"$type"}}])
+ db.movies.aggregate([{$group:{_id:"$type", total_movies:{$sum:1}}}])
+
+ db.movies.aggregate([{$group:{_id:"$type", average_time:{$avg:"$runtime"}}}])
