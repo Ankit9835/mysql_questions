@@ -56,3 +56,11 @@ db.movies.distinct("rated",{year:{$gte:2000}})
  db.movies.aggregate([{$group:{_id:"$type", total_movies:{$sum:1}}}])
 
  db.movies.aggregate([{$group:{_id:"$type", average_time:{$avg:"$runtime"}}}])
+
+  db.movies.aggregate([{$match:{year:2003}},{$group:{_id:{year:"$year", type:"$type"},total_movies:{$sum:1},
+  average_runtime:{$avg:"$runtime"}, min_runtime:{$min:"$runtime"}, max_runtime:{$max:"$runtime"}}}])
+
+
+   db.movies.find({title:{$regex:/^[a-f].{4}$/i}},{title:1})
+   db.collectionName.createIndex({})
+   db.collectionName.getIndex()
